@@ -16,8 +16,10 @@ const app = express();
     // MongoDB Connection
     await mongo.connect();
 
+    app.use(express.static("public"));
+
     // Middleware to allow access to API's
-    app.use(cors({ origin: ["guviposts.netlify.com"] }));
+    app.use(cors({ origin: "guviposts.netlify.com" }));
 
     // Middleware to parse request body into JSON format
     app.use(express.json());
